@@ -1,0 +1,40 @@
+<nav [class.scrolled]="isScrolled()" class="navbar fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center transition-all">
+  <div class="logo font-serif text-2xl font-bold text-texto">
+    <a routerLink="/" aria-label="Ir al inicio">CB Abogacía Humana</a>
+  </div>
+  
+  <button class="md:hidden p-2 text-texto" (click)="toggleMenu()" aria-label="Abrir menú">
+    <i class="fa-solid fa-bars text-2xl"></i>
+  </button>
+
+  <ul class="hidden md:flex space-x-6" cdkMenu role="navigation" aria-label="Navegación principal">
+    @for (item of navItems; track item.id) {
+      <li>
+        @if (item.href.startsWith('/#')) {
+          <a class="nav-link" cdkMenuItem [href]="item.href">{{ item.label }}</a>
+        } @else {
+          <a class="nav-link" cdkMenuItem [routerLink]="item.href">{{ item.label }}</a>
+        }
+      </li>
+    }
+  </ul>
+</nav>
+
+@if (menuAbierto()) {
+  <div class="fixed inset-0 bg-fondo z-40 md:hidden flex flex-col items-center justify-center space-y-6 pt-16">
+    <button class="absolute top-4 right-4 p-4 text-texto text-2xl" (click)="toggleMenu()" aria-label="Cerrar menú">
+      <i class="fa-solid fa-times"></i>
+    </button>
+    <ul class="flex flex-col space-y-6 text-xl text-center" cdkMenu>
+      @for (item of navItems; track item.id) {
+        <li>
+          @if (item.href.startsWith('/#')) {
+            <a class="nav-link text-texto hover:text-primario" cdkMenuItem [href]="item.href" (click)="toggleMenu()">{{ item.label }}</a>
+          } @else {
+            <a class="nav-link text-texto hover:text-primario" cdkMenuItem [routerLink]="item.href" (click)="toggleMenu()">{{ item.label }}</a>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+}

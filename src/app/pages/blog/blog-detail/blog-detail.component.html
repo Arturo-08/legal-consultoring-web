@@ -1,0 +1,52 @@
+<app-navbar />
+
+<main class="min-h-screen bg-fondo pt-32 pb-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    
+    @if (cargando()) {
+      <div class="flex justify-center items-center h-96">
+        <div class="w-16 h-16 border-4 border-primario border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    } @else if (error()) {
+      <div class="text-center py-20 bg-fondo-alt rounded-3xl border border-borde">
+        <i class="fa-solid fa-triangle-exclamation text-6xl text-red-500 mb-4"></i>
+        <h2 class="text-2xl font-serif text-texto mb-2">{{ error() }}</h2>
+        <a routerLink="/blog" class="text-primario font-bold hover:text-primario-dark underline mt-4 inline-block">
+          Volver al blog
+        </a>
+      </div>
+    } @else if (articulo()) {
+      
+      <article class="bg-fondo-card border border-borde rounded-3xl p-8 md:p-12 shadow-md mb-12" data-aos="fade-up">
+        
+        <header class="mb-10 text-center border-b border-borde pb-8">
+          <div class="inline-block bg-primario/10 text-primario font-bold px-4 py-1 rounded-full text-sm uppercase tracking-widest mb-4">
+            {{ articulo()?.categoria }}
+          </div>
+          <h1 class="text-4xl md:text-5xl font-serif font-bold text-texto mb-6 leading-tight">
+            {{ articulo()?.titulo }}
+          </h1>
+          <div class="flex items-center justify-center text-texto-suave space-x-4">
+            <span class="flex items-center"><i class="fa-regular fa-calendar mr-2"></i> {{ articulo()?.fecha | date:'longDate':'':'es' }}</span>
+            <span class="text-borde">•</span>
+            <span class="flex items-center"><i class="fa-solid fa-scale-balanced mr-2"></i> CB Abogacía Humana</span>
+          </div>
+        </header>
+
+        <div class="prose prose-lg prose-headings:font-serif prose-headings:text-texto prose-p:text-texto-medio prose-a:text-primario prose-strong:text-texto hover:prose-a:text-primario-dark max-w-none prose-img:rounded-2xl" [innerHTML]="contenidoHtml()">
+        </div>
+
+      </article>
+
+      <div class="text-center" data-aos="fade-up">
+        <a routerLink="/blog" class="inline-flex items-center text-texto-medio hover:text-primario font-semibold transition-colors">
+          <i class="fa-solid fa-arrow-left mr-2"></i> Volver a la lista de artículos
+        </a>
+      </div>
+
+    }
+
+  </div>
+</main>
+
+<app-footer />

@@ -1,0 +1,23 @@
+<section id="servicios" class="py-24 px-6 bg-fondo">
+  <div class="max-w-6xl mx-auto text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-serif text-texto mb-4" data-aos="fade-up">Áreas de Práctica</h2>
+    <p class="text-lg text-texto-medio max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Brindamos asesoría integral en diferentes ramas del derecho colombiano para asegurar que tus derechos estén siempre protegidos.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    @for (servicio of servicios(); track servicio.id; let i = $index) {
+      <div class="card-servicio group" data-aos="fade-up" [attr.data-aos-delay]="i * 100" (click)="onConsultarServicio(servicio.nombre)" role="button" tabindex="0">
+        <div class="card-icono text-primario mb-6">
+          <i class="fa-solid" [class]="servicio.icono"></i>
+        </div>
+        <h3 class="text-2xl font-serif font-bold text-texto mb-3">{{ servicio.nombre }}</h3>
+        <p class="text-texto-medio opacity-90 mb-6">{{ servicio.desc }}</p>
+        <button class="text-primario-dark font-semibold group-hover:text-secundario transition-colors flex items-center">
+          Consultar por WhatsApp <i class="fa-brands fa-whatsapp ml-2"></i>
+        </button>
+      </div>
+    }
+  </div>
+</section>

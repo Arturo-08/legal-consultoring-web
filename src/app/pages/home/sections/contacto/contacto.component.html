@@ -1,0 +1,121 @@
+<section id="contacto" class="py-24 px-6 bg-fondo-alt border-t border-borde">
+  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 bg-fondo rounded-3xl p-8 md:p-12 shadow-md">
+    
+    <div data-aos="fade-right">
+      <h2 class="text-4xl md:text-5xl font-serif text-texto mb-6">Contáctanos</h2>
+      <p class="text-lg text-texto-medio mb-8">
+        ¿Tienes una consulta legal o necesitas asesoría? Déjanos tus datos o escríbenos directamente por WhatsApp.
+      </p>
+
+      <button class="btn-whatsapp w-full sm:w-auto px-8 py-3 rounded-full text-white font-bold flex items-center justify-center transition-opacity hover:opacity-90"
+              (click)="onContactarWhatsapp()">
+        <i class="fa-brands fa-whatsapp text-2xl mr-3"></i> Contactar por WhatsApp
+      </button>
+
+      <div class="mt-8 pt-8 border-t border-borde">
+        <h4 class="font-bold text-texto text-xl mb-4">Número de contacto:</h4>
+        <div class="flex items-center text-texto-medio mb-4 text-lg">
+          <i class="fa-solid fa-phone text-primario mr-3"></i>
+          +57 321 933 7820
+        </div>
+        <div class="flex items-center text-texto-medio text-lg">
+          <i class="fa-solid fa-envelope text-primario mr-3"></i>
+          carlosarturo8.cabz&#64;gmail.com
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <div data-aos="fade-left">
+      <h3 class="text-2xl font-bold font-serif text-texto mb-6">Envíanos un mensaje</h3>
+      
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)" class="space-y-4">
+        
+        <!-- Nombre -->
+        <div>
+          <label for="nombre" class="block text-sm font-semibold text-texto-medio mb-1">Nombre Completo *</label>
+          <input 
+            id="nombre"
+            formControlName="nombre"
+            type="text" 
+            class="w-full px-4 py-3 rounded-xl border border-borde bg-white focus:outline-none focus:ring-2 focus:ring-primario focus:border-transparent transition-all"
+            placeholder="Tu nombre completo">
+          @if (contactForm.get('nombre')?.errors?.['required'] && contactForm.get('nombre')?.touched) {
+            <span class="text-red-500 text-sm mt-1">El nombre es obligatorio</span>
+          }
+          @if (contactForm.get('nombre')?.errors?.['minlength'] && contactForm.get('nombre')?.touched) {
+            <span class="text-red-500 text-sm mt-1">Debe tener al menos 3 caracteres</span>
+          }
+        </div>
+
+        <!-- Teléfono -->
+        <div>
+          <label for="telefono" class="block text-sm font-semibold text-texto-medio mb-1">Teléfono (Colombia) *</label>
+          <input 
+            id="telefono"
+            formControlName="telefono"
+            type="tel" 
+            class="w-full px-4 py-3 rounded-xl border border-borde bg-white focus:outline-none focus:ring-2 focus:ring-primario focus:border-transparent transition-all"
+            placeholder="Ej: 300 123 4567">
+          @if (contactForm.get('telefono')?.errors?.['required'] && contactForm.get('telefono')?.touched) {
+            <span class="text-red-500 text-sm mt-1">El teléfono es obligatorio</span>
+          }
+        </div>
+
+        <!-- Asunto -->
+        <div>
+          <label for="asunto" class="block text-sm font-semibold text-texto-medio mb-1">Asunto</label>
+          <input 
+            id="asunto"
+            formControlName="asunto"
+            type="text" 
+            class="w-full px-4 py-3 rounded-xl border border-borde bg-white focus:outline-none focus:ring-2 focus:ring-primario focus:border-transparent transition-all"
+            placeholder="¿De qué trata tu consulta?">
+        </div>
+
+        <!-- Mensaje -->
+        <div>
+          <label for="mensaje" class="block text-sm font-semibold text-texto-medio mb-1">Mensaje *</label>
+          <textarea 
+            id="mensaje"
+            formControlName="mensaje"
+            rows="4" 
+            class="w-full px-4 py-3 rounded-xl border border-borde bg-white focus:outline-none focus:ring-2 focus:ring-primario focus:border-transparent transition-all resize-none"
+            placeholder="Describe brevemente tu caso legal"></textarea>
+          @if (contactForm.get('mensaje')?.errors?.['required'] && contactForm.get('mensaje')?.touched) {
+            <span class="text-red-500 text-sm mt-1">El mensaje es obligatorio</span>
+          }
+          @if (contactForm.get('mensaje')?.errors?.['minlength'] && contactForm.get('mensaje')?.touched) {
+            <span class="text-red-500 text-sm mt-1">Debe tener al menos 10 caracteres</span>
+          }
+        </div>
+
+        <!-- Botón de Enviar -->
+        <button 
+          type="submit" 
+          [disabled]="contactForm.invalid || enviando()"
+          class="btn-primario w-full disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center">
+          @if (enviando()) {
+            <i class="fa-solid fa-spinner fa-spin mr-2"></i> Enviando...
+          } @else {
+            Enviar Mensaje
+          }
+        </button>
+
+        <!-- Mensajes de Estado -->
+        @if (mensajeExito()) {
+          <div class="p-4 bg-green-100 text-green-800 rounded-xl mt-4 text-center">
+            {{ mensajeExito() }}
+          </div>
+        }
+        @if (mensajeError()) {
+          <div class="p-4 bg-red-100 text-red-800 rounded-xl mt-4 text-center">
+            {{ mensajeError() }}
+          </div>
+        }
+
+      </form>
+    </div>
+
+  </div>
+</section>

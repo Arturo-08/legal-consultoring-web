@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "derechos-laborales-colombia",
+    "titulo": "Tus derechos laborales en Colombia: lo que debes saber",
+    "resumen": "Conoce tus derechos como trabajador colombiano: contrato, salario mínimo, prestaciones y más.",
+    "fecha": "2024-03-01",
+    "categoria": "Derecho Laboral",
+    "archivo": "derechos-laborales-colombia.md"
+  },
+  {
+    "slug": "proceso-penal-colombia",
+    "titulo": "¿Cómo funciona el proceso penal en Colombia?",
+    "resumen": "Guía paso a paso del sistema penal acusatorio colombiano para ciudadanos.",
+    "fecha": "2024-03-15",
+    "categoria": "Derecho Penal",
+    "archivo": "proceso-penal-colombia.md"
+  },
+  {
+    "slug": "derecho-familia-colombia",
+    "titulo": "Separación y custodia: derechos de padres e hijos en Colombia",
+    "resumen": "Todo sobre procesos de divorcio, custodia compartida y alimentos en Colombia.",
+    "fecha": "2024-04-01",
+    "categoria": "Derecho de Familia",
+    "archivo": "derecho-familia-colombia.md"
+  }
+]
