@@ -63,7 +63,7 @@ export class BlogDetailComponent implements OnInit {
   private cargarContenido(archivo: string) {
     this.blogService.getArticuloContent(archivo).subscribe({
       next: (contenido) => {
-        this.contenidoMd.set(contenido);
+        this.contenidoMd.set(this.stripMarkdownTitle(contenido));
         this.cargando.set(false);
       },
       error: () => {
@@ -71,5 +71,10 @@ export class BlogDetailComponent implements OnInit {
         this.cargando.set(false);
       }
     });
+  }
+
+  private stripMarkdownTitle(md: string): string {
+    // Elimina el primer encabezado H1 (por ejemplo: "# Título") para no duplicar el título en el HTML
+    return md.replace(/^#\s+.*(?:\r?\n)+/, '');
   }
 }

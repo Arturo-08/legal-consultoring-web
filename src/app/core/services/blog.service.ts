@@ -6,13 +6,13 @@ import { Articulo } from '../models/articulo.model';
 @Injectable({ providedIn: 'root' })
 export class BlogService {
   private http = inject(HttpClient);
-  private blogUrl = 'assets/blog/index.json';
+  private blogUrl = 'blog/index.json';
 
   getArticulos(): Observable<Articulo[]> {
     return this.http.get<Articulo[]>(this.blogUrl);
   }
 
   getArticuloContent(archivo: string): Observable<string> {
-    return this.http.get(`assets/blog/${archivo}`, { responseType: 'text' });
+    return this.http.get(`blog/${archivo}`, { responseType: 'text' });
   }
 }
