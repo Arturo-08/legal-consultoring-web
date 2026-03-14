@@ -8,4 +8,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class FooterComponent {
   anioActual = new Date().getFullYear();
+  onContactar(){
+    console.log("contatame");
+  }
 }

@@ -5,30 +5,30 @@
 @layer base {
   :root {
     /* Fondos principales */
-    --color-fondo:          #FDF6F0;   /* Blanco marfil cálido — fondo base */
-    --color-fondo-alt:      #FFF1E6;   /* Melocotón muy suave — secciones alternas */
-    --color-fondo-card:     #FFFAF6;   /* Blanco crema para tarjetas */
+    --color-fondo:          #F3E1D5;   /* Beige arena cálido — fondo base principal */
+    --color-fondo-alt:      #EAE0DA;   /* Transición suave para secciones alternas */
+    --color-fondo-card:     #FFFFFF;   /* Blanco puro para que las tarjetas resalten y den luz */
 
     /* Colores de marca */
-    --color-primario:       #C17B4E;   /* Terracota suave — botones y CTAs */
-    --color-primario-dark:  #A5633A;   /* Terracota oscuro — hover */
-    --color-secundario:     #D4A28A;   /* Salmón pastel — acentos suaves */
-    --color-acento:         #E8C9A0;   /* Arena dorada — bordes y detalles */
+    --color-primario:       #A35129;   /* Ocre/Terracota — botones, enlaces y llamados a la acción */
+    --color-primario-dark:  #87411F;   /* Ocre oscuro — para el efecto hover en botones */
+    --color-secundario:     #D4D4D9;   /* Gris claro — acentos suaves, fondos secundarios y bordes */
+    --color-acento:         #54585C;   /* Gris oscuro — detalles que necesitan peso visual sin ser negros */
 
     /* Texto */
-    --color-texto:          #3D2B1F;   /* Marrón oscuro cálido — texto principal */
-    --color-texto-medio:    #7A5C48;   /* Marrón medio — texto secundario */
-    --color-texto-suave:    #B08B72;   /* Beige — texto de apoyo */
+    --color-texto:          #000000;   /* Negro — títulos principales para máximo contraste */
+    --color-texto-medio:    #54585C;   /* Gris oscuro — párrafos y texto de lectura prolongada */
+    --color-texto-suave:    #828588;   /* Gris medio — texto secundario o fechas */
 
     /* Elementos UI */
-    --color-borde:          #EDD9C8;   /* Borde sutil cálido */
-    --color-sombra:         rgba(193, 123, 78, 0.12); /* Sombra terracota translúcida */
-    --color-whatsapp:       #25D366;   /* Verde WhatsApp — no cambiar */
+    --color-borde:          #D4D4D9;   /* Gris claro para separar elementos sutilmente */
+    --color-sombra:         rgba(163, 81, 41, 0.15); /* Sombra tintada en ocre para dar calidez */
+    --color-whatsapp:       #25D366;   /* Verde WhatsApp — se mantiene intacto */
 
     /* Gradientes */
-    --gradiente-hero: linear-gradient(135deg, #FDF0E6 0%, #F9E0CC 50%, #F5D0B5 100%);
-    --gradiente-cta:  linear-gradient(135deg, #C17B4E 0%, #D4935F 100%);
-    --gradiente-card: linear-gradient(145deg, #FFFAF6 0%, #FFF5EE 100%);
+    --gradiente-hero: linear-gradient(135deg, #ffe69e 0%, #F4F4F4 50%, #FFFFFF 100%);
+    --gradiente-cta:  linear-gradient(135deg, #A35129 0%, #87411F 100%);
+    --gradiente-card: linear-gradient(145deg, #FFFFFF 0%, #FCFAF8 100%);
   }
 
   body {
@@ -70,7 +70,7 @@
     position: absolute;
     width: 300px; height: 300px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.25);
     transform: scale(0);
     top: 50%; left: 50%;
     translate: -50% -50%;
@@ -86,16 +86,16 @@
 
   .btn-primario:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 12px 35px rgba(193, 123, 78, 0.4);
+    box-shadow: 0 12px 35px rgba(163, 81, 41, 0.35); /* Resplandor ocre en hover */
   }
 
-  /* Botón WhatsApp — pulso verde */
+  /* Botón WhatsApp */
   .btn-whatsapp {
-    background: #25D366;
+    background: var(--color-whatsapp);
     animation: pulse-green 2.5s infinite;
   }
 
-  /* Tarjeta de servicio — hover cálido */
+  /* Tarjeta de servicio */
   .card-servicio {
     background: var(--gradiente-card);
     border: 1px solid var(--color-borde);
@@ -112,14 +112,14 @@
     position: absolute;
     top: 0; left: -100%;
     width: 60%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(163, 81, 41, 0.05), transparent);
     transition: left 0.6s ease;
   }
 
   .card-servicio:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 60px var(--color-sombra);
-    border-color: var(--color-secundario);
+    border-color: var(--color-primario); /* Borde ocre sutil al pasar el mouse */
   }
 
   .card-servicio:hover::before {
@@ -128,6 +128,7 @@
 
   .card-servicio .card-icono {
     font-size: 2.5rem;
+    color: var(--color-primario); /* Ícono en color ocre */
     transition: transform 0.3s ease;
   }
 
@@ -153,7 +154,7 @@
 
   .card-abogado:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 70px rgba(193, 123, 78, 0.2);
+    box-shadow: 0 25px 70px rgba(84, 88, 92, 0.15); /* Sombra elegante basada en el gris oscuro */
   }
 
   .card-abogado:hover img {
@@ -166,7 +167,7 @@
     bottom: 2rem;
     right: 2rem;
     z-index: 9999;
-    background-color: #25D366;
+    background-color: var(--color-whatsapp);
     color: white;
     width: 60px;
     height: 60px;
@@ -175,14 +176,14 @@
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     transition: all 0.3s ease;
     text-decoration: none;
   }
 
   .whatsapp-float:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
   }
 
   .whatsapp-float:hover .whatsapp-tooltip {
@@ -193,7 +194,7 @@
   .whatsapp-float .whatsapp-tooltip {
     position: absolute;
     right: 70px;
-    background: #333;
+    background: var(--color-texto);
     color: white;
     padding: 6px 12px;
     border-radius: 8px;
@@ -204,7 +205,7 @@
     transition: all 0.3s ease;
   }
 
-  /* Hero section — fondo cálido con formas flotantes */
+  /* Hero section — fondo integrado con la paleta ocre/arena */
   .hero-section {
     background: var(--gradiente-hero);
     position: relative;
@@ -218,42 +219,44 @@
     position: absolute;
     border-radius: 50%;
     filter: blur(60px);
-    opacity: 0.35;
+    opacity: 0.2; /* Ligeramente más visible por los tonos pastel */
     animation: float 8s ease-in-out infinite;
   }
 
+  /* Formas flotantes armonizadas con la paleta */
   .hero-section .blob-1 {
     width: 500px; height: 500px;
-    background: radial-gradient(circle, #E8C9A0, #D4A28A);
+    background: radial-gradient(circle, #A35129, transparent); /* Toque de ocre */
     top: -100px; right: -100px;
     animation-delay: 0s;
   }
 
   .hero-section .blob-2 {
     width: 350px; height: 350px;
-    background: radial-gradient(circle, #F5D0B5, #C17B4E40);
+    background: radial-gradient(circle, #D4D4D9, transparent); /* Gris claro para equilibrar */
     bottom: -80px; left: -80px;
     animation-delay: -3s;
   }
 
   .hero-section .blob-3 {
     width: 250px; height: 250px;
-    background: radial-gradient(circle, #EDD9C8, #D4A28A);
+    background: radial-gradient(circle, #FFFFFF, transparent); /* Luz pura */
     top: 40%; left: 40%;
     animation-delay: -6s;
+    opacity: 0.4;
   }
 
   .navbar {
-    background: rgba(253, 246, 240, 0.85);
+    background: rgba(243, 225, 213, 0.85); /* Basado en #F3E1D5 con transparencia */
     backdrop-filter: blur(20px) saturate(1.5);
     -webkit-backdrop-filter: blur(20px) saturate(1.5);
-    border-bottom: 1px solid rgba(237, 217, 200, 0.6);
+    border-bottom: 1px solid rgba(212, 212, 217, 0.5); /* Borde gris sutil */
     transition: all 0.3s ease;
   }
 
   .navbar.scrolled {
-    background: rgba(253, 246, 240, 0.97);
-    box-shadow: 0 4px 30px rgba(193, 123, 78, 0.1);
+    background: rgba(243, 225, 213, 0.98);
+    box-shadow: 0 4px 30px rgba(163, 81, 41, 0.08); /* Sombra ocre levísima */
   }
 
   .navbar .nav-link {
@@ -268,21 +271,43 @@
     position: absolute;
     bottom: -4px; left: 0;
     width: 0; height: 2px;
-    background: var(--color-primario);
+    background: var(--color-primario); /* Subrayado ocre */
     border-radius: 2px;
     transition: width 0.3s ease;
   }
 
   .navbar .nav-link:hover, .navbar .nav-link.active {
-    color: var(--color-primario);
+    color: var(--color-texto); /* Cambia a negro para máximo contraste */
   }
 
   .navbar .nav-link:hover::after, .navbar .nav-link.active::after {
     width: 100%;
   }
+  .bg-texto{
+    background-color: #f7f7f7 !important;
+  }
+  #servicios {
+    background-color: rgb(248 248 248 / 50%) !important;
+  }
 }
 
 @keyframes pulse-green {
   0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-  50%       { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+  50%        { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-20px) rotate(2deg); }
+  66%       { transform: translateY(-10px) rotate(-1deg); }
+}
+ 
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(246, 186, 50, 0.5); }
+  50%       { box-shadow: 0 0 0 12px rgba(246, 186, 50, 0); }
+}
+ 
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

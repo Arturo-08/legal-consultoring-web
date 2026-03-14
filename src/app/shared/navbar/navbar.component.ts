@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CdkMenuModule } from '@angular/cdk/menu';
 
 @Component({
@@ -11,19 +11,23 @@ import { CdkMenuModule } from '@angular/cdk/menu';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
-  menuAbierto = signal(false);
-  isScrolled = signal(false);
+  // Inyectamos el router para conocer la URL actual
+  private router = inject(Router);
+  
+  scrolled = false;
 
-  navItems = [
-    { id: '1', label: 'Servicios', href: '/#servicios' },
-    { id: '2', label: 'Equipo', href: '/#equipo' },
-    { id: '3', label: 'Cómo Funciona', href: '/#como-funciona' },
-    { id: '4', label: 'Ubicación', href: '/#ubicacion' },
-    { id: '5', label: 'Contacto', href: '/#contacto' },
-    { id: '6', label: 'Blog', href: '/blog' }
-  ];
+  // Método que verifica si estamos en la ruta del blog
+  isBlogRoute(): boolean {
+    return this.router.url.includes('/blog');
+  }
 
-  toggleMenu() {
-    this.menuAbierto.update(v => !v);
+  // Tu lógica actual para el scroll
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.scrolled = window.scrollY > 50;
+  }
+
+  isScrolled(): boolean {
+    return this.scrolled;
   }
 }

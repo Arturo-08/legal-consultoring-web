@@ -1,15 +1,40 @@
-<section id="por-que-elegirnos" class="py-24 px-6 bg-fondo-alt border-y border-borde">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+<section id="por-que-elegirnos" class="py-24 px-6 bg-fondo-card border-y border-borde relative overflow-hidden">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
     
-    @for (razon of razones(); track razon.id; let i = $index) {
-      <div class="p-8 rounded-3xl bg-fondo-card border border-borde shadow-sm transform transition duration-500 hover:scale-105" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
-        <div class="inline-flex items-center justify-center w-20 h-20 bg-primario/10 rounded-full mb-6">
-          <i class="fa-solid text-4xl text-primario" [class]="razon.icono"></i>
-        </div>
-        <h3 class="text-2xl font-serif font-bold text-texto mb-4">{{ razon.titulo }}</h3>
-        <p class="text-texto-medio opacity-90">{{ razon.desc }}</p>
+    <div class="lg:col-span-5 text-left" data-aos="fade-right">
+      <span class="eyebrow mb-4">Nuestro Diferencial</span>
+      <h2 class="text-4xl md:text-5xl font-serif text-texto mb-4">¿Por qué elegirnos?</h2>
+      <div class="divisor-acento mb-6"></div>
+      <p class="text-lg text-texto-medio opacity-90 mb-8 font-light">
+        No somos solo abogados, somos tus aliados estratégicos. Nuestro enfoque combina el rigor legal impecable con una profunda empatía por tu situación personal o empresarial.
+      </p>
+      
+      <div class="hidden lg:flex items-center gap-4 bg-fondo p-4 rounded-2xl border border-borde-calido w-max">
+         <div class="w-12 h-12 rounded-full bg-acento flex items-center justify-center text-white">
+           <i class="fa-solid fa-award text-xl"></i>
+         </div>
+         <div>
+           <p class="font-bold text-texto leading-none">Compromiso</p>
+           <p class="text-sm text-texto-suave">Resultados reales</p>
+         </div>
       </div>
-    }
+    </div>
+
+    <div class="lg:col-span-7 space-y-6">
+      @for (razon of razones(); track razon.id; let i = $index) {
+        <div class="card-neutro flex flex-col sm:flex-row items-start gap-6 group hover:border-primario-light p-6 md:p-8" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
+          
+          <div class="flex-shrink-0 w-16 h-16 bg-fondo border border-borde-calido rounded-2xl flex items-center justify-center group-hover:bg-primario transition-colors duration-400">
+            <i class="fa-solid text-2xl text-primario group-hover:text-white transition-colors" [class]="razon.icono"></i>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-serif font-bold text-texto mb-2 group-hover:text-primario transition-colors">{{ razon.titulo }}</h3>
+            <p class="text-texto-medio leading-relaxed text-sm md:text-base">{{ razon.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
 
   </div>
 </section>
