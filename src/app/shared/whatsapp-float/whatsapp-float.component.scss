@@ -1,0 +1,44 @@
+@use 'mixins' as *;
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  background-color: var(--color-whatsapp);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  @include flex-center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+
+    .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .whatsapp-tooltip {
+    position: absolute;
+    right: 70px;
+    background: var(--color-texto);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+  }
+}

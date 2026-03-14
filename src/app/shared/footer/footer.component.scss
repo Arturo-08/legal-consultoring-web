@@ -1,0 +1,197 @@
+@use 'mixins' as *;
+
+.footer {
+  background-color: var(--color-texto);
+  padding: 5rem 1.5rem 2.5rem;
+  position: relative;
+  border-top: 4px solid var(--color-primario);
+
+  .footer-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    @include mq('lg') {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+
+  .footer-left {
+    text-align: center;
+
+    @include mq('lg') {
+      grid-column: span 7 / span 7;
+      text-align: left;
+    }
+
+    .footer-title {
+      font-size: 2.25rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--color-fondo); /* Assuming text-texto-inverso maps to fondo */
+      margin-bottom: 1.5rem;
+      line-height: 1.25;
+
+      @include mq('md') { font-size: 3rem; }
+      @include mq('lg') { font-size: 3.75rem; }
+
+      .highlight {
+        color: var(--color-acento);
+        font-style: italic;
+      }
+    }
+
+    .footer-desc {
+      color: var(--color-fondo);
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include mq('lg') {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primario);
+    }
+  }
+
+  .footer-right {
+    background-color: var(--color-acento); /* bg-fondo-oscuro proxy */
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(212, 212, 217, 0.3); /* border-borde-calido/30 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+
+    @include mq('md') { padding: 2.5rem; }
+    @include mq('lg') { grid-column: span 5 / span 5; }
+
+    .badge-icon {
+      position: absolute;
+      top: -1.25rem;
+      right: -1.25rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: var(--color-acento);
+      border-radius: 9999px;
+      @include flex-center;
+      color: var(--color-texto);
+      font-size: 1.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transform: rotate(12deg);
+    }
+
+    .contact-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-fondo);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid rgba(212, 212, 217, 0.2);
+      padding-bottom: 1rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      color: var(--color-fondo);
+      font-size: 1.125rem;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        .icon-box {
+          width: 3rem;
+          height: 3rem;
+          border-radius: 9999px;
+          background-color: rgba(163, 81, 41, 0.2);
+          @include flex-center;
+          margin-right: 1.25rem;
+          color: var(--color-primario);
+          transition: background-color 0.3s, color 0.3s;
+        }
+
+        &:hover .icon-box {
+          background-color: var(--color-primario);
+          color: var(--color-fondo);
+        }
+
+        .contact-text {
+          font-weight: 500;
+          letter-spacing: 0.025em;
+          word-break: break-all;
+
+          @include mq('md') {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    max-width: 80rem;
+    margin: 0 auto;
+    border-top: 1px solid rgba(212, 212, 217, 0.2);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+
+    @include mq('md') {
+      flex-direction: row;
+    }
+
+    .copyright {
+      color: var(--color-secundario);
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-align: center;
+
+      @include mq('md') {
+        text-align: left;
+      }
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        background-color: var(--color-acento);
+        border: 1px solid rgba(212, 212, 217, 0.3);
+        @include flex-center;
+        color: var(--color-fondo);
+        transition: all 0.3s;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+        &:hover {
+          background-color: var(--color-primario);
+          border-color: var(--color-primario);
+        }
+      }
+    }
+  }
+}

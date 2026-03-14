@@ -1,59 +1,59 @@
 <app-navbar />
 
-<main class="min-h-screen bg-fondo pt-32 pb-24 px-6">
-  <div class="max-w-6xl mx-auto">
+<main class="blog-list-main">
+  <div class="blog-container">
     
-    <div class="text-center mb-16">
-      <h1 class="text-5xl font-serif text-texto mb-4" data-aos="fade-up">Blog Jurídico</h1>
-      <p class="text-xl text-texto-medio max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+    <div class="header-container">
+      <h1 class="page-title" data-aos="fade-up">Blog Jurídico</h1>
+      <p class="page-desc" data-aos="fade-up">
         Información de valor sobre tus derechos y el sistema legal en Colombia.
       </p>
     </div>
 
     @if (cargando()) {
-      <div class="flex justify-center items-center h-64">
-        <div class="w-16 h-16 border-4 border-primario border-t-transparent rounded-full animate-spin"></div>
+      <div class="loading-container">
+        <div class="spinner"></div>
       </div>
     } @else {
       @if (articulos().length > 0) {
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="blog-grid">
           @for (articulo of articulos(); track articulo.slug; let i = $index) {
-            <article class="bg-fondo-card border border-borde rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+            <article class="blog-card" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
               
-              <div class="h-48 bg-borde relative overflow-hidden flex items-center justify-center">
-                <span class="text-4xl text-white opacity-40"><i class="fa-solid fa-scale-balanced"></i></span>
-                <div class="absolute top-4 left-4 bg-primario text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              <div class="card-image-wrapper">
+                <span class="placeholder-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                <div class="category-badge">
                   {{ articulo.categoria }}
                 </div>
               </div>
 
-              <div class="p-8 flex-grow flex flex-col">
-                <div class="text-sm text-texto-suave mb-3 flex items-center">
-                  <i class="fa-regular fa-calendar mr-2"></i> {{ articulo.fecha | date:'longDate':'':'es' }}
+              <div class="card-content">
+                <div class="date">
+                  <i class="fa-regular fa-calendar"></i> {{ articulo.fecha | date:'longDate':'':'es' }}
                 </div>
                 
-                <h2 class="text-2xl font-serif font-bold text-texto mb-4 line-clamp-2">
-                  <a [routerLink]="['/blog', articulo.slug]" class="hover:text-primario transition-colors">
+                <h2 class="title">
+                  <a [routerLink]="['/blog', articulo.slug]">
                     {{ articulo.titulo }}
                   </a>
                 </h2>
                 
-                <p class="text-texto-medio mb-6 flex-grow line-clamp-3">
+                <p class="summary">
                   {{ articulo.resumen }}
                 </p>
                 
-                <a [routerLink]="['/blog', articulo.slug]" class="inline-flex items-center text-primario font-bold hover:text-primario-dark transition-colors mt-auto">
-                  Leer artículo completo <i class="fa-solid fa-arrow-right ml-2"></i>
+                <a [routerLink]="['/blog', articulo.slug]" class="read-more">
+                  Leer artículo completo <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
             </article>
           }
         </div>
       } @else {
-        <div class="text-center py-20 bg-fondo-alt rounded-3xl border border-borde">
-          <i class="fa-regular fa-folder-open text-6xl text-borde mb-4"></i>
-          <h3 class="text-2xl font-serif text-texto mb-2">Aún no hay artículos publicados</h3>
-          <p class="text-texto-medio">Vuelve pronto para leer nuestro contenido jurídico.</p>
+        <div class="empty-state">
+          <i class="fa-regular fa-folder-open"></i>
+          <h3 class="empty-title">Aún no hay artículos publicados</h3>
+          <p class="empty-desc">Vuelve pronto para leer nuestro contenido jurídico.</p>
         </div>
       }
     }

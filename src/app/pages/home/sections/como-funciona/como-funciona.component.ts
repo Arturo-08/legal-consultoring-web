@@ -4,7 +4,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-como-funciona',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './como-funciona.component.html'
+  templateUrl: './como-funciona.component.html',
+  styleUrl: './como-funciona.component.scss'
 })
 export class ComoFuncionaComponent {
   onContactar(){

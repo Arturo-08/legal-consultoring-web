@@ -1,58 +1,57 @@
-<section class="hero-section px-6 pt-32 pb-24 relative z-10 overflow-hidden">
+<section class="hero-section">
   <div class="blob-1"></div>
   <div class="blob-2"></div>
   <div class="blob-3"></div>
-  <div class="hero-linea-acento"></div>
 
-  <div class="max-w-7xl mx-auto relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <div class="hero-container">
     
-    <div class="text-left" data-aos="fade-right">
-      <span class="eyebrow mb-4">Firma Legal en Colombia</span>
+    <div class="hero-content" data-aos="fade-up">
+      <span class="eyebrow">Firma Legal en Colombia</span>
       
-      <h1 class="text-texto mb-6 leading-tight">
-        CB Abogacía <br> <span class="text-primario">Humana</span>
+      <h1 class="section-title">
+        CB Abogacía <br> <span class="highlight">Humana</span>
       </h1>
       
-      <p class="text-xl md:text-2xl text-texto-medio mb-8 opacity-90 font-light" data-aos="fade-up" data-aos-delay="150">
-        <strong class="font-semibold text-texto">Solutio Justa:</strong> Justicia humana, transparente y a tu alcance para proteger lo que más valoras.
+      <p class="section-desc" data-aos="fade-up">
+        <strong>Solutio Justa:</strong> Justicia humana, transparente y a tu alcance para proteger lo que más valoras.
       </p>
 
-      <div class="flex items-center gap-8 mb-10" data-aos="fade-up" data-aos-delay="200">
-        <div>
+      <div class="hero-stats" data-aos="fade-up">
+        <div class="stat-item">
           <div class="stat-numero">10<span>+</span></div>
-          <div class="text-xs text-texto-suave uppercase tracking-wider font-bold mt-1">Años de Exp.</div>
+          <div class="stat-label">Años de Exp.</div>
         </div>
-        <div class="w-px h-12 bg-[var(--color-borde-calido)]"></div>
-        <div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
           <div class="stat-numero">98<span>%</span></div>
-          <div class="text-xs text-texto-suave uppercase tracking-wider font-bold mt-1">Casos de Éxito</div>
+          <div class="stat-label">Casos de Éxito</div>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center gap-4" data-aos="fade-up" data-aos-delay="300">
-        <button class="btn-primario w-full sm:w-auto flex justify-center items-center" (click)="onClickWhatsApp()">
-          <i class="fab fa-whatsapp mr-2 text-xl"></i> Asesoría Inmediata
+      <div class="hero-actions" data-aos="fade-up">
+        <button class="btn-primario btn-action" (click)="onClickWhatsApp()">
+          <i class="fab fa-whatsapp"></i> Asesoría Inmediata
         </button>
-        <a href="/#servicios" class="btn-outline w-full sm:w-auto text-center">
+        <a href="/#servicios" class="btn-outline btn-action">
           Ver servicios
         </a>
       </div>
     </div>
 
-    <div class="relative hidden lg:block" data-aos="fade-left" data-aos-delay="200">
-      <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-[var(--color-fondo-card)] relative z-10">
-        <img src="assets/img/hero-abogados.jpg" alt="Equipo de Abogados CB" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-[var(--color-primario)] mix-blend-multiply opacity-10"></div>
+    <div class="hero-image-wrapper" data-aos="fade-up">
+      <div class="image-container">
+        <img ngSrc="assets/img/hero-abogados.jpg" width="800" height="600" priority alt="Equipo de Abogados CB">
+        <div class="overlay"></div>
       </div>
       
-      <div class="absolute -bottom-8 -left-8 bg-[var(--color-fondo-card)] p-6 rounded-2xl shadow-2xl border border-[var(--color-borde-calido)] z-20">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-full bg-[var(--color-fondo-alt)] flex items-center justify-center text-[var(--color-acento)] text-2xl">
+      <div class="badge">
+        <div class="badge-content">
+          <div class="icon-box">
             <i class="fa-solid fa-scale-balanced"></i>
           </div>
-          <div>
-            <p class="text-xs text-texto-suave font-bold uppercase tracking-widest">Atención 24/7</p>
-            <p class="text-texto font-serif font-bold text-lg">Respaldo Total</p>
+          <div class="badge-text">
+            <p class="label">Atención 24/7</p>
+            <p class="title">Respaldo Total</p>
           </div>
         </div>
       </div>

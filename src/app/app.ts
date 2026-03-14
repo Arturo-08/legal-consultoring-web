@@ -22,8 +22,8 @@ export class App implements OnInit {
 
     // Inicializar AOS para animaciones on-scroll
     AOS.init({
-      duration: 800,
-      easing: 'ease-out-cubic',
+      duration: 600,
+      easing: 'ease-out',
       once: true,          // Solo anima una vez al hacer scroll
       offset: 80,
       delay: 0,

@@ -9,7 +9,8 @@ import { WhatsappService } from '../../../../core/services/whatsapp.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './contacto.component.html'
+  templateUrl: './contacto.component.html',
+  styleUrl: './contacto.component.scss'
 })
 export class ContactoComponent {
   private analytics = inject(AnalyticsService);

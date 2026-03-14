@@ -5,7 +5,8 @@ import { WhatsappService } from '../../core/services/whatsapp.service';
   selector: 'app-whatsapp-float',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './whatsapp-float.component.html'
+  templateUrl: './whatsapp-float.component.html',
+  styleUrl: './whatsapp-float.component.scss'
 })
 export class WhatsappFloatComponent {
   private whatsapp = inject(WhatsappService);

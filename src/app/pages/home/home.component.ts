@@ -29,6 +29,7 @@ import { WhatsappFloatComponent } from '../../shared/whatsapp-float/whatsapp-flo
     WhatsappFloatComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent {}

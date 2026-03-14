@@ -1,27 +1,28 @@
-<section id="equipo" class="py-24 px-6 bg-fondo">
-  <div class="max-w-6xl mx-auto text-center mb-16">
-    <h2 class="text-4xl md:text-5xl font-serif text-texto mb-4" data-aos="fade-up">Nuestro Equipo</h2>
-    <p class="text-lg text-texto-medio max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+<section id="equipo" class="equipo-section">
+  <div class="header-container">
+    <h2 class="section-title" data-aos="fade-up">Nuestro Equipo</h2>
+    <p class="section-desc" data-aos="fade-up">
       Profesionales con vocación humana, listos para acompañarte y resolver tu situación legal con la mayor diligencia.
     </p>
   </div>
 
-  <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-10">
+  <div class="equipo-grid">
     @for (abogado of equipo(); track abogado.id; let i = $index) {
-      <div class="card-abogado w-80 text-center pb-8 shadow-md" data-aos="zoom-in" [attr.data-aos-delay]="i * 200">
-        <div class="h-64 overflow-hidden rounded-t-3xl relative bg-borde mb-6 flex items-center justify-center">
-           <!-- Placeholder for image, to be replaced by actual image later -->
-           <div class="absolute inset-0 flex items-center justify-center text-4xl text-white font-bold opacity-30">
-              FOTO
-           </div>
+      <div class="card-abogado" data-aos="fade-up" [attr.data-aos-delay]="i * 200">
+        <div class="image-container">
+           @if (abogado.foto) {
+             <img [ngSrc]="abogado.foto" width="320" height="256" [alt]="abogado.nombre">
+           } @else {
+             <div class="placeholder-text">FOTO</div>
+           }
         </div>
-        <h3 class="text-2xl font-serif font-bold text-texto mb-2 px-4">{{ abogado.nombre }}</h3>
-        <p class="text-primario font-semibold mb-6 px-4">{{ abogado.especialidad }}</p>
+        <h3 class="abogado-name">{{ abogado.nombre }}</h3>
+        <p class="abogado-especialidad">{{ abogado.especialidad }}</p>
         <button 
-          class="bg-whatsapp btn-primario text-white px-6 py-2 rounded-full hover:opacity-90 transition-opacity font-medium shadow-sm hover:shadow-md"
+          class="btn-contactar"
           (click)="onContactarAbogado(abogado)"
           aria-label="Contactar abogado por WhatsApp">
-          <i class="fa-brands fa-whatsapp mr-2"></i> Contactar
+          <i class="fa-brands fa-whatsapp"></i> Contactar
         </button>
       </div>
     }

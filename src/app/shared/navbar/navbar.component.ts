@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal, inject, HostListener } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { CdkMenuModule } from '@angular/cdk/menu';
@@ -8,26 +8,37 @@ import { CdkMenuModule } from '@angular/cdk/menu';
   standalone: true,
   imports: [CommonModule, RouterModule, CdkMenuModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './navbar.component.html'
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
-  // Inyectamos el router para conocer la URL actual
+export class NavbarComponent implements OnInit, OnDestroy {
   private router = inject(Router);
+  private ngZone = inject(NgZone);
   
-  scrolled = false;
+  scrolled = signal(false);
+  private scrollListener!: () => void;
 
-  // Método que verifica si estamos en la ruta del blog
   isBlogRoute(): boolean {
     return this.router.url.includes('/blog');
   }
 
-  // Tu lógica actual para el scroll
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.scrolled = window.scrollY > 50;
+  ngOnInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.scrollListener = () => {
+        const isScrolled = window.scrollY > 50;
+        if (isScrolled !== this.scrolled()) {
+          this.ngZone.run(() => {
+            this.scrolled.set(isScrolled);
+          });
+        }
+      };
+      window.addEventListener('scroll', this.scrollListener, { passive: true });
+    });
   }
 
-  isScrolled(): boolean {
-    return this.scrolled;
+  ngOnDestroy() {
+    if (this.scrollListener) {
+      window.removeEventListener('scroll', this.scrollListener);
+    }
   }
 }

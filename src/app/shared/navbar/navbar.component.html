@@ -1,19 +1,19 @@
-<nav [class.scrolled]="isScrolled()" class="navbar fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all">
+<nav [class.scrolled]="scrolled()" class="navbar">
   
-  <div class="logo font-serif text-2xl md:text-3xl font-bold text-texto tracking-tight">
-    <a routerLink="/" aria-label="Ir al inicio" class="hover:text-primario transition-colors">
+  <div class="logo">
+    <a routerLink="/" aria-label="Ir al inicio">
       CB Abogacía
     </a>
   </div>
   
   <div>
     @if (isBlogRoute()) {
-      <a routerLink="/" class="btn-primario text-sm md:text-base px-6 py-2.5 shadow-md flex items-center hover:-translate-y-1 transition-transform">
-        <i class="fa-solid fa-house mr-2"></i> Inicio
+      <a routerLink="/" class="btn-primario nav-btn">
+        <i class="fa-solid fa-house"></i> Inicio
       </a>
     } @else {
-      <a routerLink="/blog" class="btn-primario text-sm md:text-base px-6 py-2.5 shadow-md flex items-center hover:-translate-y-1 transition-transform">
-        <i class="fa-solid fa-book-open mr-2"></i> Nuestro Blog
+      <a routerLink="/blog" class="btn-primario nav-btn">
+        <i class="fa-solid fa-book-open"></i> Nuestro Blog
       </a>
     }
   </div>

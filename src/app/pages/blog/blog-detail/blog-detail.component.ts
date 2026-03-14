@@ -14,7 +14,8 @@ import { FooterComponent } from '../../../shared/footer/footer.component';
   standalone: true,
   imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './blog-detail.component.html'
+  templateUrl: './blog-detail.component.html',
+  styleUrl: './blog-detail.component.scss'
 })
 export class BlogDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);

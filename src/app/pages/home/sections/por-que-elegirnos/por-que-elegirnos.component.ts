@@ -4,7 +4,8 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
   selector: 'app-por-que-elegirnos',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './por-que-elegirnos.component.html'
+  templateUrl: './por-que-elegirnos.component.html',
+  styleUrl: './por-que-elegirnos.component.scss'
 })
 export class PorQueElegirnosComponent {
   razones = signal([

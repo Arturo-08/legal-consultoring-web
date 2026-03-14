@@ -4,7 +4,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-footer',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './footer.component.html'
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
   anioActual = new Date().getFullYear();

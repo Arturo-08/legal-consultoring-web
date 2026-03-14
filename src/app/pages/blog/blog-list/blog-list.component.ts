@@ -11,7 +11,8 @@ import { FooterComponent } from '../../../shared/footer/footer.component';
   standalone: true,
   imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './blog-list.component.html'
+  templateUrl: './blog-list.component.html',
+  styleUrl: './blog-list.component.scss'
 })
 export class BlogListComponent implements OnInit {
   private blogService = inject(BlogService);

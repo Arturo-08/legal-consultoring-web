@@ -5,7 +5,8 @@ import { WhatsappService } from '../../../../core/services/whatsapp.service';
   selector: 'app-ubicacion',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './ubicacion.component.html'
+  templateUrl: './ubicacion.component.html',
+  styleUrl: './ubicacion.component.scss'
 })
 export class UbicacionComponent {
   private whatsapp = inject(WhatsappService);

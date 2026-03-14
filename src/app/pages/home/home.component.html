@@ -8,16 +8,16 @@
   @defer (on viewport) {
     <app-servicios />
   } @placeholder {
-    <div class="h-96 flex items-center justify-center bg-fondo">
-      <div class="animate-pulse w-32 h-32 bg-borde rounded-full"></div>
+    <div class="placeholder-container bg-fondo">
+      <div class="pulse-circle"></div>
     </div>
   }
 
   @defer (on viewport) {
     <app-por-que-elegirnos />
   } @placeholder {
-    <div class="h-96 flex items-center justify-center bg-fondo-alt">
-      <div class="animate-pulse w-32 h-32 bg-borde rounded-full"></div>
+    <div class="placeholder-container bg-fondo-alt">
+      <div class="pulse-circle"></div>
     </div>
   }
 
@@ -25,21 +25,21 @@
   @defer (on viewport; prefetch on idle) {
     <app-equipo />
   } @placeholder {
-    <div class="h-96 flex items-center justify-center bg-fondo">
-      <div class="animate-pulse w-32 h-32 bg-borde rounded-full"></div>
+    <div class="placeholder-container bg-fondo">
+      <div class="pulse-circle"></div>
     </div>
   } @loading (minimum 300ms) {
-    <div class="h-96 flex flex-col items-center justify-center bg-fondo space-y-4">
-      <div class="w-12 h-12 border-4 border-primario border-t-transparent rounded-full animate-spin"></div>
-      <span class="text-texto-medio font-semibold">Cargando equipo...</span>
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <span class="loading-text">Cargando equipo...</span>
     </div>
   }
 
   @defer (on viewport) {
     <app-como-funciona />
   } @placeholder {
-    <div class="h-96 flex items-center justify-center bg-fondo-alt">
-      <div class="animate-pulse w-32 h-32 bg-borde rounded-full"></div>
+    <div class="placeholder-container bg-fondo-alt">
+      <div class="pulse-circle"></div>
     </div>
   }
 
@@ -47,16 +47,16 @@
   @defer (on viewport) {
     <app-ubicacion />
   } @placeholder {
-    <div class="h-96 flex items-center justify-center bg-fondo border border-borde rounded-3xl m-6">
-      <span class="text-2xl font-serif text-texto-medio">📍 Armenia, Quindío</span>
+    <div class="placeholder-container bg-fondo map-placeholder">
+      <span class="map-text">📍 Armenia, Quindío</span>
     </div>
   }
 
   @defer (on viewport) {
     <app-contacto />
   } @placeholder {
-    <div class="h-96 flex items-center justify-center bg-fondo-alt">
-      <div class="animate-pulse w-32 h-32 bg-borde rounded-full"></div>
+    <div class="placeholder-container bg-fondo-alt">
+      <div class="pulse-circle"></div>
     </div>
   }
 </main>
