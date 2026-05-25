@@ -276,3 +276,13 @@
     }
   }
 }
+
+.ver-mas-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+}

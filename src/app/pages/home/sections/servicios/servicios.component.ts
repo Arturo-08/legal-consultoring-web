@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal, computed, HostListener, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { WhatsappService } from '../../../../core/services/whatsapp.service';
 
 @Component({
@@ -8,8 +9,12 @@ import { WhatsappService } from '../../../../core/services/whatsapp.service';
   templateUrl: './servicios.component.html',
   styleUrl: './servicios.component.scss',
 })
-export class ServiciosComponent {
+export class ServiciosComponent implements OnInit {
   private whatsapp = inject(WhatsappService);
+  private platformId = inject(PLATFORM_ID);
+
+  isExpanded = signal(false);
+  isMobile = signal(false);
 
   servicios = signal([
     {
@@ -106,6 +111,33 @@ export class ServiciosComponent {
   ]);
 
   flippedCards = signal<Set<number>>(new Set());
+
+  visibleServicios = computed(() => {
+    if (this.isExpanded()) return this.servicios();
+    const limit = this.isMobile() ? 4 : 6;
+    return this.servicios().slice(0, limit);
+  });
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
+    }
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenSize();
+    }
+  }
+
+  private checkScreenSize() {
+    this.isMobile.set(window.innerWidth < 768);
+  }
+
+  toggleExpanded() {
+    this.isExpanded.update(val => !val);
+  }
 
   toggleCard(id: number) {
     this.flippedCards.update((cards) => {
