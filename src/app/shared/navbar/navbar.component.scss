@@ -26,6 +26,11 @@
     font-weight: 700;
     color: var(--color-texto);
     letter-spacing: -0.025em;
+    &_content{
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+    }
 
     @include mq('md') {
       font-size: 1.875rem;

@@ -7,7 +7,7 @@ export class WhatsappService {
   private readonly BASE_URL = 'https://wa.me/';
   
   // Número general de la firma
-  private readonly NUMERO_FIRMA = '573219337820';
+  private readonly NUMERO_FIRMA = '573012359951';
 
   openWhatsApp(seccion: string, numero?: string, mensaje?: string): void {
     // 🔥 Registrar el evento en GA4 ANTES de abrir WhatsApp

@@ -7,7 +7,7 @@
       <div class="header-text">
         <span class="eyebrow" data-aos="fade-up">Especialidades Legales</span>
         <h2 class="section-title" data-aos="fade-up">
-          Áreas de Práctica
+          Servicios
         </h2>
         <div class="divisor-acento" data-aos="fade-up"></div>
         <p class="section-desc" data-aos="fade-up">
@@ -15,32 +15,57 @@
         </p>
       </div>
       <div class="header-badge" data-aos="fade-up">
-         <span class="badge-acento"><i class="fa-solid fa-check mr-1"></i> Cobertura Nacional</span>
+         <span class="badge-acento"><i class="fa-solid fa-check mr-2"></i> Cobertura Nacional</span>
       </div>
     </div>
 
     <div class="cards-grid">
       @for (servicio of servicios(); track servicio.id; let i = $index) {
-        <div class="card-servicio" data-aos="fade-up" [attr.data-aos-delay]="i * 100" (click)="onConsultarServicio(servicio.nombre)" role="button" tabindex="0">
-          
-          <div class="card-header">
-            <div class="card-icono">
-              <i class="fa-solid" [class]="servicio.icono"></i>
-            </div>
-            <span class="badge-terracota">
-              Asesoría
-            </span>
-          </div>
+        <div class="card-servicio-scene" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+          <div class="card-servicio-inner" [class.is-flipped]="isFlipped(servicio.id)" (click)="toggleCard(servicio.id)" role="button" tabindex="0">
+            
+            <!-- CARA FRONTAL -->
+            <div class="card-servicio-front card-servicio">
+              <div class="card-header">
+                <div class="card-icono">
+                  <i class="fa-solid" [class]="servicio.icono"></i>
+                </div>
+                <span class="badge-terracota">
+                  Asesoría
+                </span>
+              </div>
 
-          <h3 class="card-title">{{ servicio.nombre }}</h3>
-          <p class="card-desc">{{ servicio.desc }}</p>
-          
-          <div class="card-divider"></div>
-          
-          <button class="card-action">
-            Consultar caso 
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
+              <h3 class="card-title">{{ servicio.nombre }}</h3>
+              <p class="card-desc">{{ servicio.desc }}</p>
+              
+              <div class="card-divider"></div>
+              
+              <button class="card-action">
+                Expandir servicios
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- CARA TRASERA -->
+            <div class="card-servicio-back card-servicio">
+              <h3 class="card-title">{{ servicio.nombre }}</h3>
+              <p class="card-subtitle">Ofrecemos:</p>
+              
+              <ul class="servicios-lista">
+                @for (item of servicio.ofrecemos; track $index) {
+                  <li><i class="fa-solid fa-check text-acento"></i> {{ item }}</li>
+                }
+              </ul>
+
+              <div class="card-divider mt-auto"></div>
+              
+              <button class="card-action" (click)="onConsultarServicio(servicio.nombre, $event)">
+                Consultar caso 
+                <i class="fa-brands fa-whatsapp"></i>
+              </button>
+            </div>
+
+          </div>
         </div>
       }
     </div>

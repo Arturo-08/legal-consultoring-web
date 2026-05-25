@@ -18,9 +18,16 @@ export class EquipoComponent {
     {
       id: '1',
       nombre: 'Carlos Edgar Buitrago Peña',
-      especialidad: 'Derecho Penal y Civil',
+      especialidad: 'Asesor jurídico',
       whatsapp: '573007409013',
-      foto: '/assets/images/abogado1.jpg'
+      foto: '/images/equipo/carlos_buitrago.png'
+    },
+    {
+      id: '2',
+      nombre: 'Carlos Yamit Rodríguez',
+      especialidad: 'Abogado penalista',
+      whatsapp: '573506051830',
+      foto: '/images/equipo/carlos_yamit.png'
     }
   ]);
 

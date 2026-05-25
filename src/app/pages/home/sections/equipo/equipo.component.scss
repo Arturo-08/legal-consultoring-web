@@ -18,6 +18,11 @@
     justify-content: center;
     gap: 2.5rem;
   }
+  .button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .card-abogado {
     width: 20rem;
@@ -52,7 +57,7 @@
         transition: transform 0.6s ease;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
       }
 
       .placeholder-text {
@@ -82,28 +87,5 @@
       padding: 0 1rem;
     }
 
-    .btn-contactar {
-      background-color: var(--color-whatsapp);
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 9999px;
-      font-weight: 500;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        opacity: 0.9;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      }
-
-      i {
-        margin-right: 0.5rem;
-      }
-    }
   }
 }

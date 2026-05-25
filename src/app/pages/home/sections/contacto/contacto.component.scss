@@ -2,7 +2,7 @@
 
 .contacto-section {
   padding: 6rem 1.5rem;
-  background-color: var(--color-fondo-alt);
+  background-color: var(--color-fondo-card);
   border-top: 1px solid var(--color-borde);
   position: relative;
   overflow: hidden;
@@ -11,7 +11,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 33.333333%;
+    width: 50%;
     height: 100%;
     background-color: var(--color-fondo);
     z-index: 0;
@@ -59,18 +59,14 @@
     .feature-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      background-color: white;
-      padding: 1rem;
-      border-radius: 1rem;
-      border: 1px solid var(--color-borde);
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      margin-top: 1rem;
+      gap: 0.8rem;
 
       .icon-box {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
-        background-color: var(--color-fondo);
+        background-color: var(--color-fondo-secundary);
         @include flex-center;
         color: var(--color-primario);
       }

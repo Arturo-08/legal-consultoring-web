@@ -2,7 +2,7 @@
 
 .por-que-elegirnos-section {
   padding: 6rem 1.5rem;
-  background-color: var(--color-fondo-card);
+  background-color: var(--color-fondo-secundary);
   border-top: 1px solid var(--color-borde);
   border-bottom: 1px solid var(--color-borde);
   position: relative;
@@ -23,6 +23,9 @@
 
   .left-content {
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
     @include mq('lg') {
       grid-column: span 5 / span 5;
@@ -33,11 +36,8 @@
     display: none;
     align-items: center;
     gap: 1rem;
-    background-color: var(--color-fondo);
-    padding: 1rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(212, 212, 217, 0.5); /* borde-calido proxy */
     width: max-content;
+    margin-top: 10px;
 
     @include mq('lg') {
       display: flex;
@@ -99,10 +99,10 @@
     &:hover {
       border-color: rgba(163, 81, 41, 0.3); /* primario-light proxy */
       background-color: rgba(255, 255, 255, 0.5);
-      
+
       .reason-icon-wrapper {
         background-color: var(--color-primario);
-        
+
         i {
           color: white;
         }

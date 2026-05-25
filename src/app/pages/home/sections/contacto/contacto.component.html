@@ -25,8 +25,8 @@
         </div>
       </div>
 
-      <button class="btn-whatsapp btn-whatsapp-large" (click)="onContactarWhatsapp()">
-        <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+      <button class="btn-primario btn-action btn-action-margin" (click)="onContactarWhatsapp()">
+        <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
       </button>
     </div>
 
@@ -40,7 +40,7 @@
             <label for="nombre">Nombre Completo *</label>
             <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Ej: Juan Pérez">
             @if (contactForm.get('nombre')?.errors?.['required'] && contactForm.get('nombre')?.touched) {
-              <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Obligatorio</span>
+              <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Campos con * son obligatorio</span>
             }
           </div>
 
@@ -48,7 +48,7 @@
             <label for="telefono">Teléfono *</label>
             <input id="telefono" formControlName="telefono" type="tel" class="form-control" placeholder="Ej: 300 123 4567">
             @if (contactForm.get('telefono')?.errors?.['required'] && contactForm.get('telefono')?.touched) {
-              <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Obligatorio</span>
+              <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Campos con * son obligatorio</span>
             }
           </div>
         </div>
@@ -62,7 +62,7 @@
           <label for="mensaje">Mensaje *</label>
           <textarea id="mensaje" formControlName="mensaje" rows="4" class="form-control textarea" placeholder="Describe brevemente tu situación..."></textarea>
           @if (contactForm.get('mensaje')?.errors?.['required'] && contactForm.get('mensaje')?.touched) {
-            <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Obligatorio</span>
+            <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Campos con * son obligatorio</span>
           }
         </div>
 
