@@ -19,7 +19,7 @@ export class ServiciosComponent implements OnInit {
   servicios = signal([
     {
       id: 1,
-      nombre: 'Derecho civil',
+      nombre: 'Derecho Civil',
       desc: 'Asesoría en contratos, responsabilidad civil, y litigios patrimoniales.',
       icono: 'fa-scale-balanced',
       ofrecemos: [
@@ -32,7 +32,7 @@ export class ServiciosComponent implements OnInit {
     },
     {
       id: 2,
-      nombre: 'Derecho penal',
+      nombre: 'Derecho Penal',
       desc: 'Defensa y representación en todo tipo de procesos penales en Colombia.',
       icono: 'fa-gavel',
       ofrecemos: [
@@ -44,7 +44,7 @@ export class ServiciosComponent implements OnInit {
     },
     {
       id: 3,
-      nombre: 'Derecho tributario y aduanero',
+      nombre: 'Derecho Tributario y Aduanero',
       desc: 'Evaluamos, planificamos y defendemos la estrategia fiscal y de comercio exterior.',
       icono: 'fa-users',
       ofrecemos: [
@@ -57,20 +57,19 @@ export class ServiciosComponent implements OnInit {
     },
     {
       id: 4,
-      nombre: 'Sector político y gobierno',
+      nombre: 'Sector Político y Gobierno',
       desc: 'Protegemos la carrera de líderes políticos, la legalidad de sus campañas y la estabilidad institucional frente a riesgos legales y reputacionales.',
       icono: 'fa-briefcase',
       ofrecemos: [
-        'Derecho electoral',
-        'Defensa de funcionarios publicos',
-        'Defensa de campañas electorales',
-        'Riesgo de disciplinario y fiscal',
+        'Derecho electoral (Dirección de Campañas)',
+        'Marketing Político',
+        'Defensa de Funcionarios (Disciplinario y Fiscal)',
         'Proteccion reputacional de figuras publicas',
       ],
     },
     {
       id: 5,
-      nombre: 'Responsabilidad en daños',
+      nombre: 'Responsabilidad en Daños',
       desc: 'Defendemos y gestionamos reclamaciones económicas y penales derivadas de siniestros, accidentes y fallas del servicio.',
       icono: 'fa-building',
       ofrecemos: [
@@ -81,7 +80,7 @@ export class ServiciosComponent implements OnInit {
     },
     {
       id: 6,
-      nombre: 'Investigación criminal y probatoria',
+      nombre: 'Investigación Criminal y Probatoria',
       desc: 'Fortalecemos la estrategia del litigio mediante la obtención legal y científica de pruebas de alta complejidad para asegurar el éxito en tribunales.',
       icono: 'fa-file-signature',
       ofrecemos: [
@@ -96,14 +95,14 @@ export class ServiciosComponent implements OnInit {
     },
     {
       id: 7,
-      nombre: 'Sector contrucción',
+      nombre: 'Sector Contrucción',
       desc: 'Aseguramos proyectos constructivos mediante licencias, cumplimiento ambiental y blindaje sancionatorio.',
       icono: 'fa-helmet-safety',
       ofrecemos: ['Derecho urbanístico', 'Derecho ambiental'],
     },
     {
       id: 8,
-      nombre: 'Derecho administrativo',
+      nombre: 'Derecho Administrativo',
       desc: 'Defendemos los derechos de particulares y empresas frente a las actuaciones, contratos y decisiones del sector público.',
       icono: 'fa-building-columns',
       ofrecemos: ['Restitución de tierras', 'Contratacion estatal', 'Reparación directa'],

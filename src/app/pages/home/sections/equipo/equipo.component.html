@@ -18,7 +18,7 @@
           }
         </div>
         <h3 class="abogado-name">{{ abogado.nombre }}</h3>
-        <p class="abogado-especialidad">{{ abogado.especialidad }}</p>
+        <p class="abogado-especialidad" [innerHTML]="abogado.especialidad"></p>
         <div class="button-container">
           <button class="btn-primario btn-action btn-action-margin" style="padding: 8px 16px; font-size: 0.875rem;" (click)="onContactarAbogado(abogado)">
             <i class="fab fa-whatsapp"></i> Contactar

@@ -40,8 +40,27 @@
 
     <div class="hero-image-wrapper" data-aos="fade-up">
       <div class="image-container">
-        <img ngSrc="/images/abogacia_humana_local.jpg" width="800" height="600" priority alt="Equipo de Abogados CB">
-        <div class="overlay"></div>
+        @for (img of carouselImages; track $index; let i = $index) {
+          <div class="carousel-slide" [class.active]="currentImageIndex() === i">
+            <img [ngSrc]="img.src" fill priority [alt]="img.alt">
+            <div class="overlay"></div>
+          </div>
+        }
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control prev" (click)="prevImage()" aria-label="Imagen anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-control next" (click)="nextImage()" aria-label="Siguiente imagen">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+          @for (img of carouselImages; track $index; let i = $index) {
+            <button class="indicator" [class.active]="currentImageIndex() === i" (click)="setCurrentImage(i)" [attr.aria-label]="'Ir a imagen ' + (i + 1)"></button>
+          }
+        </div>
       </div>
       
       <div class="badge">
