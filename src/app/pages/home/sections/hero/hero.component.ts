@@ -36,7 +36,7 @@ export class HeroComponent implements OnInit {
     this.stopAutoPlay();
     this.autoPlayInterval = setInterval(() => {
       this.nextImage();
-    }, 5000);
+    }, 3000);
   }
 
   stopAutoPlay() {
